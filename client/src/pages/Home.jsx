@@ -66,17 +66,21 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   // ✅ SAFE PRODUCT FETCH
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      const res = await getAllProducts();
-      setProducts(res.data);
-    } catch (error) {
-      console.error("Failed to fetch products", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+ const getProducts = async () => {
+  try {
+    setLoading(true);
+    const res = await getAllProducts();
+
+    // 🔥 REAL FIX
+    setProducts(res.data.data || []);
+
+  } catch (error) {
+    console.error("Failed to fetch products", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   // ✅ CONTROLLED AUTO CALL (NO LOOP / NO GHOST CALL)
   useEffect(() => {
