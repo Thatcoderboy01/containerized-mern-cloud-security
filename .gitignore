@@ -8,7 +8,6 @@ server/.env*
 
 # Build folders
 dist/
-# build/
 
 # Logs
 npm-debug.log
