@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   backend:
     build: ./server
@@ -7,8 +9,6 @@ services:
     env_file:
       - ./server/.env
     restart: always
-    networks:
-      - krist-network
 
   frontend:
     build: ./client
@@ -18,9 +18,3 @@ services:
     depends_on:
       - backend
     restart: always
-    networks:
-      - krist-network
-
-networks:
-  krist-network:
-    driver: bridge
