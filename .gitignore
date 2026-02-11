@@ -6,8 +6,7 @@ node_modules/
 client/.env*
 server/.env*
 
-# Build folders
-dist/
+!client/build/**
 
 # Logs
 npm-debug.log
