@@ -114,7 +114,7 @@ const ShopListing = () => {
           : ""
       }`
     ).then((res) => {
-      setProducts(res.data);
+      setProducts(res.data.data || []);
       setLoading(false);
     });
   };
